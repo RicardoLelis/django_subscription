@@ -1,0 +1,12 @@
+{% if user_membership_list %}
+<ul>
+    {% for user_membership in user_membership_list %}
+
+    <li>{{ user_membership }}</li>
+
+
+    {% endfor %}
+</ul>
+{% else %}
+<p>No memberships available yet.</p>
+{% endif %}

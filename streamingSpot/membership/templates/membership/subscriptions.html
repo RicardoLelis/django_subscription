@@ -1,0 +1,12 @@
+{% if subscriptions_list %}
+<ul>
+    {% for subscription in subscriptions_list %}
+
+    <li>{{ subscription }}</li>
+
+
+    {% endfor %}
+</ul>
+{% else %}
+<p>No memberships available yet.</p>
+{% endif %}

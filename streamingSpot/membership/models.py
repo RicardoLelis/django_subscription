@@ -11,15 +11,15 @@ class Membership(models.Model):
     slug = models.SlugField(null=True, blank=True),
     membership_type = models.CharField(
         choices=MEMBERSHIP_CHOICES, default='Free', max_length=30)
-    price = models.DecimalField(default=0)
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
     def __str__(self):
         return self.membership_type
 
 
 class UserMembership(models.Model):
-    user = models.OneToOne(settings.AUTH_USER_MODEL,
-                           related_name='user_membership', on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                related_name='user_membership', on_delete=models.CASCADE)
     membership = models.ForeignKey(
         Membership, related_name='user_membership', on_delete=models.SET_NULL, null=True)
 

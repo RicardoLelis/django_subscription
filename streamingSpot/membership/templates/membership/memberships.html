@@ -1,0 +1,9 @@
+{% if membership_list %}
+<ul>
+    {% for membership in membership_list %}
+    <li><a href="{% url 'memberships:detail' membership.id %}"></a>{{ membership }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No memberships available yet.</p>
+{% endif %}
